@@ -283,20 +283,20 @@ export const createImage = ({
   architecture,
   username,
   credentials,
-  imageType: imageTypes,
+  image_type: imageTypes,
   'selected-packages': packages,
 }) => {
-  let [imageType] = imageTypes || [];
+  let [image_type] = imageTypes || [];
   if (imageTypes.length > 1) {
-    imageType = 'rhel-edge-installer';
+    image_type = 'rhel-edge-installer';
   }
   const payload = {
     name,
     version,
     description,
     distribution: release,
-    imageType: imageType,
-    outputTypes: imageTypes,
+    image_type: image_type,
+    output_types: image_type,
     commit: {
       arch: architecture,
       packages: packages.map((item) => ({ name: item.name })),

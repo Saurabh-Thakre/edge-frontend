@@ -39,8 +39,8 @@ const ImageInformationCard = () => {
           value: isImageInfoLoading ? (
             <Skeleton size={SkeletonSize.sm} />
           ) : imageData ? (
-            <Link to={`${paths['manage-images']}/${imageData?.Image?.ID}`}>
-              {imageData?.Image?.Name}
+            <Link to={`${paths['manage-images']}/${imageData?.Image?.id}`}>
+              {imageData?.Image?.name}
             </Link>
           ) : (
             'unavailable'
@@ -51,8 +51,8 @@ const ImageInformationCard = () => {
           value: isImageInfoLoading ? (
             <Skeleton size={SkeletonSize.sm} />
           ) : imageData ? (
-            <Link to={`${paths['manage-images']}/${imageData?.Image?.ID}`}>
-              {imageData?.Image?.Version}
+            <Link to={`${paths['manage-images']}/${imageData?.Image?.id}`}>
+              {imageData?.Image?.version}
             </Link>
           ) : (
             'unavailable'
@@ -67,13 +67,13 @@ const ImageInformationCard = () => {
               to={`${paths['manage-images']}/${
                 imageData?.UpdatesAvailable[
                   imageData?.UpdatesAvailable.length - 1
-                ]?.Image?.ID
+                ]?.Image?.id
               }`}
             >
               {
                 imageData?.UpdatesAvailable[
                   imageData?.UpdatesAvailable.length - 1
-                ]?.Image?.Version
+                ]?.Image?.version
               }
             </Link>
           ) : hasError ? (
@@ -86,9 +86,9 @@ const ImageInformationCard = () => {
           title: 'Rollback version',
           value: isImageInfoLoading ? (
             <Skeleton size={SkeletonSize.sm} />
-          ) : imageData?.Rollback?.ParentId ? (
-            <Link to={`${paths['manage-images']}/${imageData?.Rollback?.ID}`}>
-              {imageData?.Rollback?.Version}
+          ) : imageData?.Rollback?.parent_id ? (
+            <Link to={`${paths['manage-images']}/${imageData?.Rollback?.id}`}>
+              {imageData?.Rollback?.version}
             </Link>
           ) : hasError ? (
             'unavailable'

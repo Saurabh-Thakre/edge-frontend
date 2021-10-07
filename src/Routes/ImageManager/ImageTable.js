@@ -182,30 +182,30 @@ const ImageTable = ({
 
     if (data?.data?.length) {
       rows = data.data.map((image) => ({
-        id: image.ID,
+        id: image.id,
         cells: [
           {
             title: (
-              <Link to={`${paths['manage-images']}/${image.ID}`}>
-                {image.Name}
+              <Link to={`${paths['manage-images']}/${image.id}`}>
+                {image.name}
               </Link>
             ),
           },
-          image?.Version,
+          image?.version,
           {
-            title: distributionMapper[image?.Distribution],
+            title: distributionMapper[image?.distribution],
           },
           {
-            title: imageTypeMapper[image?.ImageType],
+            title: imageTypeMapper[image?.image_type],
           },
           {
-            title: <DateFormat date={image?.CreatedAt} />,
+            title: <DateFormat date={image?.created_at} />,
           },
           {
-            title: <StatusLabel status={image?.Status} />,
+            title: <StatusLabel status={image?.status} />,
           },
         ],
-        imageStatus: image?.Status,
+        imageStatus: image?.status,
         isoURL: image?.Installer?.ImageBuildISOURL,
       }));
     }

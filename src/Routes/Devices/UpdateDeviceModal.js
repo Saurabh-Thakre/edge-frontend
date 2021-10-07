@@ -30,7 +30,7 @@ const UpdateDeviceModal = ({ updateModal, setUpdateModal, refreshTable }) => {
     try {
       await updateDeviceLatestImage({
         DeviceUUID: updateModal.deviceData?.id,
-        CommitId: imageData?.Image.CommitID,
+        CommitId: imageData?.Image.commit_id,
       });
       dispatch({
         ...addNotification({
@@ -87,25 +87,25 @@ const UpdateDeviceModal = ({ updateModal, setUpdateModal, refreshTable }) => {
             Image Name
           </TextListItem>
           <TextListItem component={TextListItemVariants.dd}>
-            {imageData?.Image.Name}
+            {imageData?.Image.name}
           </TextListItem>
           <TextListItem component={TextListItemVariants.dt}>
             Version
           </TextListItem>
           <TextListItem component={TextListItemVariants.dd}>
-            {imageData?.Image.Version}
+            {imageData?.Image.version}
           </TextListItem>
           <TextListItem component={TextListItemVariants.dt}>
             Created
           </TextListItem>
           <TextListItem component={TextListItemVariants.dd}>
-            <DateFormat date={imageData?.Image.CreatedAt} />
+            <DateFormat date={imageData?.Image.created_at} />
           </TextListItem>
           <TextListItem component={TextListItemVariants.dt}>
             Release
           </TextListItem>
           <TextListItem component={TextListItemVariants.dd}>
-            {distributionMapper[imageData?.Image.Distribution]}
+            {distributionMapper[imageData?.Image.distribution]}
           </TextListItem>
         </TextList>
         <TextListItem component={TextVariants.h3}>

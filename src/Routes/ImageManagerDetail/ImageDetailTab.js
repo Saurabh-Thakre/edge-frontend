@@ -16,18 +16,18 @@ const ImageDetailTab = () => {
     shallowEqual
   );
 
-  const dateFormat = () => <DateFormat date={data['CreatedAt']} />;
+  const dateFormat = () => <DateFormat date={data['created_at']} />;
   const labelsToValueMapper = {
-    'Image name': 'Name',
-    Version: 'Version',
+    'Image name': 'name',
+    Version: 'version',
     Created: () => dateFormat(),
-    Release: () => distributionMapper[data['Distribution']],
-    'Output type': () => imageTypeMapper[data['ImageType']],
-    'Added packages': () => data.Commit.Packages.length,
+    Release: () => distributionMapper[data['distribution']],
+    'Output type': () => imageTypeMapper[data['image_type']],
+    'Added packages': () => data.Commit.packages.length,
   };
 
-  if (data?.Installer?.Checksum) {
-    labelsToValueMapper['SHA-256 Checksum'] = () => data?.Installer?.Checksum;
+  if (data?.Installer?.checksum) {
+    labelsToValueMapper['SHA-256 Checksum'] = () => data?.Installer?.checksum;
   }
 
   return (
